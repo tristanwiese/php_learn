@@ -1,0 +1,139 @@
+body{
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid black 1px;
+}
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+.game-title{
+    display: block;
+    font-family: 'Games', sans-serif;
+    font-size: 50px;
+    animation: game-title-breath 1s infinite linear;
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+.centre{    
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.playground{
+    display: none;
+    flex-direction: column;
+}
+.player{
+    display: flex;
+    align-items: center;
+    margin-left: 200px;
+    background-color: greenyellow;
+    height: 50px;
+    width: 30px;
+    transform-origin: bottom;
+}
+.enemy{
+    opacity: 0;
+    width: 20px;
+    height: 20px;
+    align-self: flex-end;
+    background-color: red;
+    justify-self: flex-end;
+    margin-right: 8px;
+    border: solid black 1px;
+}
+.ground{
+    width: 500px;
+    border: solid black 1px;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    border-radius: 20px;
+    align-self: center;
+    width: 100px;
+    height: 40px;
+    background-color: rgb(155, 255, 115);
+    box-shadow: 0px 7px 10px rgba(155, 255, 115, 0.2);
+}
+.button:hover{
+    box-shadow: 0px 7px 20px rgba(155, 255, 115, 0.815);
+    background-color: rgb(142, 236, 105);
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+@keyframes jump-animation{
+    0%{
+        transform: scale3d(1,1,1);
+    }
+    7%{
+        transform: scale3d(1.5, 0.7, 1);
+    }
+    14%{
+        transform: scale3d(.7, 1.5, 1);
+    }
+    33%{
+        transform: scale3d(1.5,.7, 1) translateY(-80px);  
+    }
+    53%{
+        transform: translateY(0px) scale3d(1, 1, 1);
+    }
+    60%{
+        transform: scale3d(1.5, 0.7, 1);
+    }
+    67%{
+        transform: scale3d(1,1,1);
+    }
+}
+
+@keyframes move-left{
+    0%{
+        opacity: 0;
+    }
+    7%{
+        opacity: 1;
+    }
+    47%{
+        opacity: 1;
+    }
+    60%{
+        opacity: 0;
+    }
+    67%{
+        transform: translateX(-500px);
+        opacity: 0;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes game-title-breath {
+    50%{
+        font-size: 60px;
+    }
+    100%{
+        font-size: 50px;
+    }
+}
+.move-left{
+    animation: move-left linear infinite 2s;
+}
+
+.jump{
+    animation: jump-animation linear infinite 1.5s;
+}
+.prevent-select {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
